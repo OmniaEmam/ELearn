@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Elearn.Models.Ueaser>
+
+@{
+    ViewBag.Title = "listUser";
+}
+<head>
+    <title>Users List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+    <link href="~/Content/Ueaser.css" rel="stylesheet" />
+</head>
+
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Users List Page</h2>
+            
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+<section class="inner-page">
+    <div class="container">
+
+        <table class="table">
+            <tr>
+                <th class="col-lg-1">
+                    Id
+                </th>
+                <th class="col-lg-3">
+                    Name
+                </th>
+                <th class="col-lg-4">
+                    User Name
+                </th>
+                <th class="col-lg-3">
+                    Phone
+                </th>
+                <th class="col-lg-1">
+                    Checked
+                </th>
+            </tr>
+
+            @{
+                foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td class="col-lg-1">
+                            <h2>@item.id</h2>
+                        </td>
+                        <td class="col-lg-3">
+                            <h2>@item.Fname @item.Lname</h2>
+                        </td>
+                        <td class="col-lg-4">
+                            <h2>@item.UserName</h2>
+                        </td>
+                        <td class="col-lg-3">
+                            <h2>@item.phone</h2>
+                        </td>
+                        <td class="col-lg-1">
+                            <input type="checkbox" id="@item.id" value="@item.id" name="@item.UserName" onclick="chckd('@item.id')" />
+                        </td>
+                    </tr>
+
+                }
+            }
+        </table>
+            <script src="~/js/ApiStuInGroup.js"></script>
+        </div>
+</section>

@@ -1,0 +1,29 @@
+﻿.postdiv {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    margin: 10px;
+}
+.post {
+    background-color: white;
+
+}
+
+.an{
+    margin-bottom:20px;
+}
+.Qu {
+    background-color: white;
+}
+.comemnt {
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(16,29,43,.15);
+    margin: 10px;
+}
+.zeromark {
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(255,0,0,.7);
+    margin: 10px;
+}

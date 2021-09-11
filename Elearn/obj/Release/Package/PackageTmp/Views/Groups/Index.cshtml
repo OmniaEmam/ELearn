@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Elearn.Models.Group>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idteacher)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.id)
+    </td>
+    <td>
+        <img src="@item.photo" height="100" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.dis)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.idteacher)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+     
+        @Html.ActionLink("Delete", "Delete", new { id = item.id }) |
+        <a href="@Url.Action("listUser","PutUserInGroup",new { id=item.id})">AddInGroup</a>
+    </td>
+</tr>
+}
+
+</table>

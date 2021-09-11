@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/Discussion.css" rel="stylesheet" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+    <link href="~/Content/myExamas.css" rel="stylesheet" />
+
+</head>
+
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Discussion Page</h2>
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container">
+        @{
+            foreach (var item in ViewBag.post_qus)
+            {
+                <div class="row" style="border-collapse:inherit">
+                    @if (Session["Role"] == "Employee")
+                    {
+                        <div>
+                            <h3 style="color:black">
+                                User Name : @{var x = item.Ueaser.Fname + " " + item.Ueaser.Lname;}
+                                @x
+                            </h3>
+                        </div>
+                    }
+                <div class="col-sm-12 col-xs-12 post">
+                    <hr style="color:black; width:500px" />
+                    <h3 style="color:black">
+                        User Name : @item.post.post1
+
+                    </h3>
+                    <hr style="color:black; width:500px" />
+                </div>
+                    <div class="col-sm-12 col-xs-12">
+                        <h3 style="color:black">
+                            The Question : @item.qu.Qu1
+                        </h3>
+                       
+                    </div>
+                    <div class="Qu">
+                        <div class="col-sm-6 col-xs-12 an">
+                            <samp style="color:black">
+                            a) @item.qu.An1
+                            </samp>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 an">
+                            <samp style="color:black">
+                            b) @item.qu.An2
+                            </samp>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 an">
+                            <samp style="color:black">
+                            c) @item.qu.An3
+                            </samp>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 an">
+                            <samp style="color:black">
+                            d) @item.qu.An4
+                            </samp>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row comemnt">
+
+                    <div id="C_@item.post.id">
+                        <h3>Comments :<br /></h3>
+                        @{foreach (var c in item.comm)
+                            {
+                                <div class="col-xs-12">
+
+                                    <h3 class="post" style="margin-left:10px; color:black"> @c.comment1</h3>
+                                </div>
+                            }
+                        }
+                    </div>
+
+                    <div class="col-xs-12">
+                        <input type="button" class="btn btn-outline-dark" id="Get_@item.post.id" value="more" onclick="getcomment('Get_@item.post.id','@item.post.id')" style="margin-left: 10px;" />
+                    </div>
+                    <br />
+                    <br />
+                    <hr style="color:black; width:1100px" />
+                    <br />
+                    <div class="col-xs-8">
+                        <input type="text" id="@item.post.id" class="form-control" placeholder="Leave Your Comment" />
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-xs-4">
+                        <input type="button" class="btn btn-primary" style="width:120px" value="Send" onclick="sendcomment('@item.post.id','@Session["id"]')" />
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            }
+
+
+        }
+        <br />
+        <br />
+        <br />
+        <script src="~/js/Discussion.js"></script>
+    </div>
+</section>

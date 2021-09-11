@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Elearn.Models.UserInGroup>
+@using Elearn.Models;
+@{ElearnEntities1 db = new ElearnEntities1();}
+@{
+    ViewBag.Title = "useringroup";
+}
+<head>
+    <title>Users List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+    <link href="~/Content/Ueaser.css" rel="stylesheet" />
+</head>
+
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Users Enrolled</h2>
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+<section class="inner-page">
+    <div class="container">
+
+        <table class="table">
+            <tr>
+                <th class="col-lg-3">
+                    Name
+                </th>
+                <th class="col-lg-4">
+                    User Name
+                </th>
+                <th class="col-lg-3">
+                    Phone
+                </th>
+                <th class="col-lg-1">
+                    Checked
+                </th>
+            </tr>
+
+            @{
+                foreach (var item in Model)
+                {
+
+                    Ueaser u = db.Ueasers.Find(item.iduser);
+
+                    <tr>
+                        <td class="col-lg-1">
+                            <h2>@u.Fname @u.Lname</h2>
+                        </td>
+                        <td class="col-lg-1">
+                            <h2>@u.phone</h2>
+                        </td>
+                        <td class="col-lg-1">
+                            <h2>@u.UserName</h2>
+                        </td>
+
+                        <td class="col-lg-1">
+                            <input type="checkbox" id="@item.iduser" value="@item.iduser" onclick="chckd('@item.iduser')" checked />
+                        </td>
+                    </tr>
+                    
+                }
+            }
+            
+            </table>
+        </div>
+    </section>
+
+            @*@{
+                    foreach (var item in ViewBag.v)
+                    {
+                        <h3>@item.id</h3>
+                        <h3>@item.Fname</h3>
+                        <h3>@item.Lname</h3>
+                        <h3>@item.role</h3>
+                        <h3>@item.pass</h3>
+                    }
+                }*@
+
+            <script src="~/js/ApiStuInGroup.js"></script>
+
+            

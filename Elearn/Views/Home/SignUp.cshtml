@@ -1,0 +1,117 @@
+﻿@model Elearn.Models.Ueaser
+
+@{
+    ViewBag.Title = "SignUp";
+}
+<head>
+    <title>SignUp</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+
+</head>
+
+<body>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">Sign Up</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-10">
+                    <div class="wrap d-md-flex">
+                        <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+                            <div class="text w-100">
+                                <img src="~/Content/assets/img/SginUp.jpg" style="height:750px; width:390px;" />
+                            </div>
+                        </div>
+                        <div class="login-wrap p-4 p-lg-5">
+
+                            @using (Html.BeginForm())
+                            {
+
+                                <div class="form-horizontal">
+                                    <div class="form-group mb-3">
+                                        <label class="label" style="color:black">First Name</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Fname, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="label" style="color:black">Last Name</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Lname, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="label" style="color:black">Phone Number</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="label" style="color:black">User Name</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="label" style="color:black">Password</label>
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <label class="label" style="color:black">Re-Password</label>
+                                        <div class="col-md-10">
+                                            <input type="password" class="form-control" id="Repass" name="Repass" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label class="label" style="color:black">Select your Gender</label>
+                                        <div class="col-md-10">
+                                            <div>
+                                                @Html.RadioButtonFor(m => m.sex, "Male", new { htmlAttributes = new { @class = "form-control" } })
+                                                <label class="label" style="color:black">Male</label>
+                                            </div>
+                                            <div>
+                                                @Html.RadioButtonFor(m => m.sex, "Female", new { htmlAttributes = new { @class = "form-control" } })
+                                                <label class="label" style="color:black">FeMale</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="button" value="validation" id="validation" class="btn btn-primary" style="width:210px" />
+                                            <br />
+                                            <br />
+                                            <input type="submit" value="Send" id="send" class="btn btn-success" style="width:210px" />
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                            
+
+                            <h3 id="m">@ViewBag.m</h3>
+                            <script src="~/js/sinup.js"></script>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+</section>
+</body>

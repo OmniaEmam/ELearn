@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "myExamas";
+}
+<link href="~/Content/myExamas.css" rel="stylesheet" />
+<div class="container">
+    @{foreach (var item in ViewBag.exame)
+        {
+        <div class="col-sm-3 col-xs-12 Exame">
+
+            <a href="@Url.Action("Exama", "Student",new{id=item.id})"><img src="@item.photo" class="img" height="100" /></a>
+            <h3>@item.name</h3>
+            @{if (Session["Role"] == "Employee")
+                {
+                    <a href="@Url.Action("Create", "qus", new{id = item.id})" class="btn btn-primary">Add Que</a>
+                    <a href="@Url.Action("Index", "Marks", new{id = item.id})" class="btn btn-primary">Marks</a>
+                }
+            }
+            <a href="@Url.Action("Index", "Discussion", new {id = item.id})" class="btn btn-primary">Discussion</a>
+            <a href="@Url.Action("Index", "Notes", new {id = item.id})" class="btn btn-primary">Notes</a>
+        </div>
+        }
+    }
+</div>

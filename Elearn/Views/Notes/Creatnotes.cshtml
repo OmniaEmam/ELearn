@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Creatnotes";
+}
+<head>
+    <title>All Groups Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+    <link href="~/Content/Ueaser.css" rel="stylesheet" />
+    <link href="~/Content/Exama.css" rel="stylesheet" />
+</head>
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>All Groups Page</h2>
+
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+
+<section class="inner-page">
+    <div class="container">
+        <div class="row">
+            <form method="post">
+                <div class="form-group">
+                    <label for="description">Post</label>
+                    <textarea rows="5" class="form-control" name="note"></textarea>
+                </div>
+                <div class="form-group">
+                    <h3>@ViewBag.qu.Qu1</h3>
+                </div>
+                <div class="row Qu2">
+                    <div class="col-sm-6 col-xs-12 an">
+                        <samp class="f2">@ViewBag.qu.An1</samp>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 an">
+                        <samp class="f2">@ViewBag.qu.An2</samp>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 an">
+                        <samp class="f2">@ViewBag.qu.An3</samp>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 an">
+                        <samp class="f2">@ViewBag.qu.An4</samp>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        Create
+                    </button>
+                    <a href="@Url.Action("Exama","Student",new { id = ViewBag.exame })" class="btn btn-primary">
+                        back
+                    </a>
+                </div>
+            </form>
+
+        </div>
+        </div>
+</section>

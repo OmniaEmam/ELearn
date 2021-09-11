@@ -1,0 +1,98 @@
+﻿@model Elearn.Models.exame
+
+@{
+    ViewBag.Title = "Edit";
+}
+<head>
+    <title>Edit</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+
+</head>
+
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Edit Exam Page</h2>
+
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+<section class="inner-page">
+    <div class="container">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+               
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.id)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.photo, htmlAttributes: new { @class = "h2 col-lg-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.photo, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "h2 col-lg-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.description, htmlAttributes: new { @class = "h2 col-lg-2" })
+                    
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.id_teacher, htmlAttributes: new { @class = "h2 col-lg-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.id_teacher, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.idgroup, htmlAttributes: new { @class = "h2 col-lg-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.idgroup, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-success" style="width:210px" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
+        </div>
+</section>

@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "index";
+}
+<head>
+    <title>All Groups Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+    <link href="~/Content/Ueaser.css" rel="stylesheet" />
+</head>
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Note Page</h2>
+
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+<section class="inner-page">
+    <div class="container">
+        <h1>
+            @Html.ActionLink("Create New", "Creatnotes")
+        </h1>
+        @{
+            foreach (var item in ViewBag.nos)
+            {
+
+
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12 post">
+                        <h3 style="color:black">
+                            @item.Note.notes
+                        </h3>
+                    </div>
+                    <div class="col-sm-12 col-xs-12">
+                        <h4>
+                            @item.qu.Qu1
+                        </h4>
+                    </div>
+
+                    <div class="Qu">
+                        <div class="col-sm-6 col-xs-12 an">
+                            <samp>@item.qu.An1</samp>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 an">
+                            <samp>@item.qu.An2</samp>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 an">
+                            <samp>@item.qu.An3</samp>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 an">
+                            <samp>@item.qu.An4</samp>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</section>

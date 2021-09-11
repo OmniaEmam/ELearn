@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Elearn.Models.qu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Qu1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.An1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.An2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.An3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.An4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QreAn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.reason_an)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_emp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idexame)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Qu1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.An1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.An2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.An3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.An4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QreAn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.reason_an)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_emp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idexame)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Elearn.Models.Group>
+
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <title>All Groups Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+    <link href="~/Content/Ueaser.css" rel="stylesheet" />
+</head>
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>All Groups Page</h2>
+            
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+
+<section class="inner-page">
+    <div class="container">
+        <h1>
+            @Html.ActionLink("Create New", "Create")
+        </h1>
+        <table class="table">
+            <tr>
+                <th class="h2">
+                    @Html.DisplayNameFor(model => model.id)
+                </th>
+                <th class="h2">
+                    @Html.DisplayNameFor(model => model.photo)
+                </th>
+                <th class="h2">
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th class="h2">
+                    @Html.DisplayNameFor(model => model.dis)
+                </th>
+                <th class="h2">
+                    @Html.DisplayNameFor(model => model.idteacher)
+                </th>
+               
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="h2">
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td class="h2">
+                        <img src="@item.photo" height="100" />
+                    </td>
+                    <td class="h2">
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td class="h2">
+                        @Html.DisplayFor(modelItem => item.dis)
+                    </td>
+                    <td class="h2">
+                        @Html.DisplayFor(modelItem => item.idteacher)
+                    </td>
+                    <td class="h2">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id }) |
+                        <a href="@Url.Action("listUser","PutUserInGroup",new { id=item.id})">AddInGroup</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</section>
+<!-- End #main -->

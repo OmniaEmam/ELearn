@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Exama";
+}
+<link href="~/Content/Exama.css" rel="stylesheet" />
+<head>
+    <title>Courses</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+    <link href="~/Content/myExamas.css" rel="stylesheet" />
+
+</head>
+
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Exam Page</h2>
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="container-fluid">
+            @{ int i = 1;
+                string id;
+                string wid;
+                string T;
+                string chack;
+                int exam = 0;
+            }
+
+            <form method="post" action='@Url.Action("Exama","Student")'>
+
+                @{foreach (var item in ViewBag.qus)
+                    {
+                        wid = "w_" + Convert.ToString(item.id);
+                        T = "T_" + Convert.ToString(item.id);
+                        chack = "chack_" + Convert.ToString(item.id);
+                        exam = item.idexame;
+                        <div class="T_">
+                            <div id=" @item.id">
+                                <h3>
+                                    @i-@item.Qu1
+                                </h3>
+                            </div>
+                            <div class="row Qu2" id="@wid">
+                                @{id = "r1_" + Convert.ToString(i);}
+                                <div class="col-sm-6 col-xs-12 an" id="@id">
+                                    <input type="radio" name="An_@i" value="1" onclick='selected("@id","@wid")' />
+                                    <samp class="h3">@item.An1</samp>
+                                </div>
+                                @{id = "r2_" + Convert.ToString(i);}
+                                <div class="col-sm-6 col-xs-12 an" id="@id">
+                                    <input type="radio" name="An_@i" value="2" onclick='selected("@id","@wid")' />
+                                    <samp class="h3">@item.An2</samp>
+                                </div>
+                                @{id = "r3_" + Convert.ToString(i);}
+                                <div class="col-sm-6 col-xs-16 an" id="@id">
+                                    <input type="radio" name="An_@i" value="3" onclick='selected("@id","@wid")' />
+                                    <samp class="h3">@item.An3</samp>
+                                </div>
+                                @{id = "r4_" + Convert.ToString(i);}
+                                <div class="col-sm-6 col-xs-12 an" id="@id">
+                                    <input type="radio" name="An_@i" value="4" onclick='selected("@id","@wid")' />
+                                    <samp class="h3">@item.An4</samp>
+                                </div>
+                            </div>
+                        </div>
+                        <hr style="color:black" />
+                        i++;
+                    }
+                }
+
+                <input class="col-lg-3 btn btn-primary" style="left:350px;" type="submit" value="Send" id="send" />
+                
+                <br />
+                <br />
+                <br />
+                <div id="html_post" class="row" style="left:450px">
+                    <hr style="color:black" />
+                    <br />
+                    <input type="button" value="Make Select" id="post" class="col-lg-2 btn btn-primary" />
+                    |||
+                    <a class="col-lg-2 btn btn-primary" style="left:240px" id="go" href='@Url.Action("Creatpost","Posts",new {id=0,exame=exam})'>Create Post</a>
+                    |||
+                    <a class="col-lg-2 btn btn-primary" style="left:510px" id="no" href='@Url.Action("Creatnotes","Notes",new {id=0,exame=exam})'>Create Note</a>
+                </div>
+            </form>
+        </div>
+
+        <script src="~/js/Exama.js"></script>
+        </div>
+</section>

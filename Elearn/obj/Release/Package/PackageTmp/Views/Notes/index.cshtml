@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "index";
+}
+<link href="~/Content/Discussion.css" rel="stylesheet" />
+@{
+    foreach (var item in ViewBag.nos)
+    {
+
+
+        <div class="row postdiv">
+            <div class="col-sm-12 col-xs-12 post">
+                <h3>
+                    @item.Note.notes
+                </h3>
+            </div>
+            <div class="col-sm-12 col-xs-12">
+                <h4>
+                    @item.qu.Qu1
+                </h4>
+            </div>
+
+            <div class="Qu">
+                <div class="col-sm-6 col-xs-12 an">
+                    <samp>@item.qu.An1</samp>
+                </div>
+                <div class="col-sm-6 col-xs-12 an">
+                    <samp>@item.qu.An2</samp>
+                </div>
+                <div class="col-sm-6 col-xs-12 an">
+                    <samp>@item.qu.An3</samp>
+                </div>
+                <div class="col-sm-6 col-xs-12 an">
+                    <samp>@item.qu.An4</samp>
+                </div>
+            </div>
+            </div>
+            }
+            }

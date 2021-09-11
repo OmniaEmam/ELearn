@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ElearnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idstu" Type="Int32" />
+    <Property Name="comment1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="idpost" Type="Int32" />
+    <NavigationProperty Name="post" Relationship="Self.FK_comment_post" FromRole="comment" ToRole="post" />
+  </EntityType>
+  <EntityType Name="exame">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="photo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="id_emp" Type="Int32" />
+    <Property Name="id_teacher" Type="Int32" />
+    <Property Name="idgroup" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dis" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="idteacher" Type="Int32" />
+    <Property Name="idemp" Type="Int32" />
+    <Property Name="photo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="iduser" Type="Int32" />
+    <Property Name="state" Type="Int32" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="role" Type="Int32" />
+    <Property Name="token" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="markexame">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idexame" Type="Int32" />
+    <Property Name="mark" Type="Int32" />
+    <Property Name="idstu" Type="Int32" />
+    <Property Name="fullmark" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Note">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idstu" Type="Int32" />
+    <Property Name="idqu" Type="Int32" />
+    <Property Name="idexam" Type="Int32" />
+    <Property Name="notes" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="post">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idqu" Type="Int32" />
+    <Property Name="idstu" Type="Int32" />
+    <Property Name="post1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="idexame" Type="Int32" />
+    <NavigationProperty Name="comments" Relationship="Self.FK_comment_post" FromRole="post" ToRole="comment" />
+  </EntityType>
+  <EntityType Name="qu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Qu1" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="An1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="An2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="An3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="An4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QreAn" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="reason_an" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="id_emp" Type="Int32" />
+    <Property Name="idexame" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Ueaser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="role" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="actv" Type="Int32" />
+    <Property Name="sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserInGroup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="iduser" Type="Int32" />
+    <Property Name="idgroup" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_comment_post">
+    <End Role="post" Type="Self.post" Multiplicity="0..1" />
+    <End Role="comment" Type="Self.comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="post">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="idpost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ElearnEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="comments" EntityType="Self.comment" />
+    <EntitySet Name="exames" EntityType="Self.exame" />
+    <EntitySet Name="Groups" EntityType="Self.Group" />
+    <EntitySet Name="Logins" EntityType="Self.Login" />
+    <EntitySet Name="markexames" EntityType="Self.markexame" />
+    <EntitySet Name="Notes" EntityType="Self.Note" />
+    <EntitySet Name="posts" EntityType="Self.post" />
+    <EntitySet Name="qus" EntityType="Self.qu" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Ueasers" EntityType="Self.Ueaser" />
+    <EntitySet Name="UserInGroups" EntityType="Self.UserInGroup" />
+    <AssociationSet Name="FK_comment_post" Association="Self.FK_comment_post">
+      <End Role="post" EntitySet="posts" />
+      <End Role="comment" EntitySet="comments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Elearn.Models.exame>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.photo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_emp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_teacher)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idgroup)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+        <img src="@item.photo" height="100"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_emp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_teacher)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idgroup)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+          
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })|
+            <a href="@Url.Action("Create", "qus", new { id = item.id })">add qu</a>
+
+        </td>
+    </tr>
+}
+
+</table>

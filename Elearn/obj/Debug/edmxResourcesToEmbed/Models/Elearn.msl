@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ElearnModelStoreContainer" CdmEntityContainer="ElearnEntities1">
+    <EntitySetMapping Name="comments">
+      <EntityTypeMapping TypeName="ElearnModel.comment">
+        <MappingFragment StoreEntitySet="comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idstu" ColumnName="idstu" />
+          <ScalarProperty Name="comment1" ColumnName="comment" />
+          <ScalarProperty Name="idpost" ColumnName="idpost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="exames">
+      <EntityTypeMapping TypeName="ElearnModel.exame">
+        <MappingFragment StoreEntitySet="exame">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id_emp" ColumnName="id_emp" />
+          <ScalarProperty Name="id_teacher" ColumnName="id_teacher" />
+          <ScalarProperty Name="idgroup" ColumnName="idgroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="ElearnModel.Group">
+        <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="dis" ColumnName="dis" />
+          <ScalarProperty Name="idteacher" ColumnName="idteacher" />
+          <ScalarProperty Name="idemp" ColumnName="idemp" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="ElearnModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="token" ColumnName="token" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="markexames">
+      <EntityTypeMapping TypeName="ElearnModel.markexame">
+        <MappingFragment StoreEntitySet="markexame">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idexame" ColumnName="idexame" />
+          <ScalarProperty Name="mark" ColumnName="mark" />
+          <ScalarProperty Name="idstu" ColumnName="idstu" />
+          <ScalarProperty Name="fullmark" ColumnName="fullmark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notes">
+      <EntityTypeMapping TypeName="ElearnModel.Note">
+        <MappingFragment StoreEntitySet="Notes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idstu" ColumnName="idstu" />
+          <ScalarProperty Name="idqu" ColumnName="idqu" />
+          <ScalarProperty Name="idexam" ColumnName="idexam" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="posts">
+      <EntityTypeMapping TypeName="ElearnModel.post">
+        <MappingFragment StoreEntitySet="post">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idqu" ColumnName="idqu" />
+          <ScalarProperty Name="idstu" ColumnName="idstu" />
+          <ScalarProperty Name="post1" ColumnName="post" />
+          <ScalarProperty Name="idexame" ColumnName="idexame" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qus">
+      <EntityTypeMapping TypeName="ElearnModel.qu">
+        <MappingFragment StoreEntitySet="qu">
+          <ScalarProperty Name="Qu1" ColumnName="Qu" />
+          <ScalarProperty Name="An1" ColumnName="An1" />
+          <ScalarProperty Name="An2" ColumnName="An2" />
+          <ScalarProperty Name="An3" ColumnName="An3" />
+          <ScalarProperty Name="An4" ColumnName="An4" />
+          <ScalarProperty Name="QreAn" ColumnName="QreAn" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="reason_an" ColumnName="reason_an" />
+          <ScalarProperty Name="id_emp" ColumnName="id_emp" />
+          <ScalarProperty Name="idexame" ColumnName="idexame" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ElearnModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ueasers">
+      <EntityTypeMapping TypeName="ElearnModel.Ueaser">
+        <MappingFragment StoreEntitySet="Ueaser">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Pass" ColumnName="Pass" />
+          <ScalarProperty Name="actv" ColumnName="actv" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInGroups">
+      <EntityTypeMapping TypeName="ElearnModel.UserInGroup">
+        <MappingFragment StoreEntitySet="UserInGroup">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="iduser" ColumnName="iduser" />
+          <ScalarProperty Name="idgroup" ColumnName="idgroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

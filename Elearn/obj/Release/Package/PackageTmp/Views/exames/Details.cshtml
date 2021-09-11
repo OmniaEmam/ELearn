@@ -1,0 +1,66 @@
+﻿@model Elearn.Models.exame
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>exame</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.photo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.photo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_emp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_emp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_teacher)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_teacher)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idgroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idgroup)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

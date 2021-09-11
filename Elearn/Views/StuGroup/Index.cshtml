@@ -1,0 +1,65 @@
+﻿@model IList<Elearn.Models.Group>
+
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <title>Courses</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+    <link href="~/Content/myExamas.css" rel="stylesheet" />
+
+</head>
+
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Courses Page</h2>
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+<!-- ======= Why Us Section ======= -->
+<section id="why-us" class="why-us">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 d-flex align-items-stretch">
+                    <div class="icon-boxes d-flex flex-column justify-content-center">
+                        <div class="row">
+                            <div class="col-lg-12 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="icon-box mt-4 mt-xl-0">
+                                    <i class="bx bx-receipt"></i>
+                                    <p>
+                                        This Group is About
+                                        <br />
+                                        <h4> @item.name </h4>
+                                        <a href="@Url.Action("myExamas", "Student", new { id = item.id })" class="btn btn-primary">Start</a>
+                                    </p>
+                                        @{if (Session["Role"] == "Employee")
+                                            {
+                                                <a href="@Url.Action("useringroup", "PutUserInGroup", new { id = item.id })" class="btn btn-primary">Users Enrolled</a>
+                                            }
+                                        }
+                                    <h3>@ViewBag.x</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section><!-- End Services Section -->

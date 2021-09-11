@@ -1,0 +1,13 @@
+﻿img.img {
+    height: 110px;
+    margin: 8px 8px 8px 8px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+}
+.Exame{
+    margin: 20px 10px 10px 10px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+}

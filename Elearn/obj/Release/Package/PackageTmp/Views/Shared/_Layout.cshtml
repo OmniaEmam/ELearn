@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @{
+                        if (Session["UserName"] == "Normal" && Session["Role"] == "Normal")
+                        {
+                            <li><a href="@Url.Action("Index","Home")" class="navbar-brand">Elearn</a></li>
+                        }
+                        else if (Session["Role"] == "Student")
+                        {
+                            <li><a href="@Url.Action("Index","StuGroup")" class="navbar-brand">Group</a></li>
+                        }
+                        else if (Session["Role"] == "Employee")
+                        {
+                            <li><a href="@Url.Action("Index","StuGroup")" class="navbar-brand">My Group</a></li>
+                            <li><a href="@Url.Action("Index","exames")" class="navbar-brand">Exama</a></li>
+                            <li><a href="@Url.Action("Index","Groups")" class="navbar-brand">All Gourp</a></li>
+                            <li><a href="@Url.Action("Index","Ueasers")" class="navbar-brand">User</a></li>
+                        }
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @{if (Session["UserName"] == "Normal" && Session["Role"] == "Normal")
+                      {
+                           <li><a href="@Url.Action("SignUp","Home")" class="glyphicon glyphicon-user">SignUp</a></li>
+                           <li><a href="@Url.Action("Login", "Home")" class="glyphicon glyphicon-user">Login</a> </li>
+                            
+                      }
+                      else if (Session["UserName"] != null && Session["Role"] != null)
+                      {
+                           <li><a href="@Url.Action("LogOut","Home")" class="glyphicon glyphicon-user" onclick="pageLoad()">LogOut</a></li>
+                           <li><a href="@Url.Action("Settings","Home")" class="glyphicon glyphicon-user">Settings</a></li>
+                       
+                      }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/js/logout.js"></script>
+</body>
+</html>

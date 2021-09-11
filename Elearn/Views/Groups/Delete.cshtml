@@ -1,0 +1,80 @@
+﻿@model Elearn.Models.Group
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<head>
+    <title>Delete</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+
+</head>
+
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Delete Groups Page</h2>
+          
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+<section class="inner-page">
+    <div class="container">
+        <h1>Are You Sure to Delete this Group ?</h1>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt class="h2">
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+
+            <dd class="h2">
+                @Html.DisplayFor(model => model.name)
+            </dd>
+
+            <dt class="h2">
+                @Html.DisplayNameFor(model => model.dis)
+            </dt>
+
+            <dd class="h2">
+                @Html.DisplayFor(model => model.dis)
+            </dd>
+
+            <dt class="h2">
+                @Html.DisplayNameFor(model => model.idteacher)
+            </dt>
+
+            <dd class="h2">
+                @Html.DisplayFor(model => model.idteacher)
+            </dd>
+
+        </dl>
+        <br />
+        
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-success" style="width:110px" />
+                <br />
+                <br />
+                <br />
+                |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+    </section>

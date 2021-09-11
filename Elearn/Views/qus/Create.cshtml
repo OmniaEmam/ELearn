@@ -1,0 +1,101 @@
+﻿@model Elearn.Models.qu
+
+@{
+    ViewBag.Title = "Create";
+}
+<head>
+    <title>Create</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+
+</head>
+
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Create a Question</h2>
+
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+
+<section class="inner-page">
+    <div class="container">
+        @using (Html.BeginForm())
+        {
+            <div class="form-horizontal">
+                <hr />
+                <div class="form-group h2">
+                    <label class="h2 col-md-2">The Question</label>
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Qu1, new { htmlAttributes = new { @class = "form-control", rows = "3" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="h2 col-md-2">Choice NO.1</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.An1, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="h2 col-md-2">Choice NO.2</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.An2, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="h2 col-md-2">Choice NO.3</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.An3, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="h2 col-md-2">Choice NO.4</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.An4, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="h2 col-md-2">The Correct Answer</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.QreAn, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="h2 col-md-2">Reason</label>
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.reason_an, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-success" style="width:210px" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+        </div>
+</section>

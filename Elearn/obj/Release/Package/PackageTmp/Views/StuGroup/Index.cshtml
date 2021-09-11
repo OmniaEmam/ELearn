@@ -1,0 +1,23 @@
+﻿@model IList<Elearn.Models.Group>
+
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/myExamas.css" rel="stylesheet" />
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+    <div class="col-sm-3 col-xs-12 Exame">
+        <a href="@Url.Action("myExamas", "Student", new { id = item.id })"><img src="@item.photo" class="img" height="100" /></a>
+        <h3>@item.name</h3>
+        @{if (Session["Role"] == "Employee")
+            {
+        <a href="@Url.Action("useringroup", "PutUserInGroup", new { id = item.id })" class="btn btn-primary">StuInGroup</a>
+                }
+            }
+    </div>
+        
+    }
+</div>
+<h3>@ViewBag.x</h3>

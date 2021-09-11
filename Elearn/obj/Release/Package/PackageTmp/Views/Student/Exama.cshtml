@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Exama";
+}
+<link href="~/Content/Exama.css" rel="stylesheet" />
+
+<div class="container-fluid">
+    @{ int i = 1;
+        string id;
+        string wid;
+        string T;
+        string chack;
+        int exam = 0;
+    }
+
+    <form method="post" action='@Url.Action("Exama","Student")'>
+
+        @{foreach (var item in ViewBag.qus)
+            {
+                wid = "w_" + Convert.ToString(item.id);
+                T = "T_" + Convert.ToString(item.id);
+                chack = "chack_" + Convert.ToString(item.id);
+                exam = item.idexame;
+                <div class="T_">
+                    <div class="Qu" id=" @item.id">
+                        <h5 class="f2">
+                            @i-@item.Qu1
+                            
+                        </h5>
+                    </div>
+                    <div class="row Qu2" id="@wid">
+                        @{id = "r1_" + Convert.ToString(i);}
+                        <div class="col-sm-6 col-xs-12 an" id="@id">
+                            <input type="radio" name="An_@i" value="1" onclick='selected("@id","@wid")' />
+                            <samp class="f2">@item.An1</samp>
+                        </div>
+                        @{id = "r2_" + Convert.ToString(i);}
+                        <div class="col-sm-6 col-xs-12 an" id="@id">
+                            <input type="radio" name="An_@i" value="2" onclick='selected("@id","@wid")' />
+                            <samp class="f2">@item.An2</samp>
+                        </div>
+                        @{id = "r3_" + Convert.ToString(i);}
+                        <div class="col-sm-6 col-xs-16 an" id="@id">
+                            <input type="radio" name="An_@i" value="3" onclick='selected("@id","@wid")' />
+                            <samp class="f2">@item.An3</samp>
+                        </div>
+                        @{id = "r4_" + Convert.ToString(i);}
+                        <div class="col-sm-6 col-xs-12 an" id="@id">
+                            <input type="radio" name="An_@i" value="4" onclick='selected("@id","@wid")' />
+                            <samp class="f2">@item.An4</samp>
+                        </div>
+                    </div>
+                </div>
+                i++;
+            }
+        }
+
+        <input class="btn btn-primary" type="submit" value="send" id="send" />
+        <br />
+        <br />
+        <br />
+        <div id="html_post" class="row">
+            <input type="button" value="make select" id="post" class="col-xs-4 btn btn-default" />
+            <a class="col-xs-4 btn btn-default" id="go" href='@Url.Action("Creatpost","Posts",new {id=0,exame=exam})'>Create Post</a>
+            <a class="col-xs-4 btn btn-default" id="no" href='@Url.Action("Creatnotes","Notes",new {id=0,exame=exam})'>Create Note</a>
+        </div>
+    </form>
+</div>
+
+<script src="~/js/Exama.js"></script>

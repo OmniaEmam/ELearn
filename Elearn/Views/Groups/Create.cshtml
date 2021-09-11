@@ -1,0 +1,81 @@
+﻿@model Elearn.Models.Group
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<head>
+    <title>Create</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+
+</head>
+
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Create Groups Page</h2>
+            
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+<section class="inner-page">
+    <div class="container">
+        @using (Html.BeginForm("Create", "Groups", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.photo, htmlAttributes: new { @class = "h2 col-lg-1" })
+                    <div class="col-md-10">
+                        <input type="file" name="file" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "h2 col-lg-1" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.dis, htmlAttributes: new { @class = "h2 col-lg-1" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.dis, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.idteacher, htmlAttributes: new { @class = "h2 col-lg-1" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.idteacher, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-success" style="width:210px"/>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</section>

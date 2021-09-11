@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Creatpost";
+}
+<link href="~/Content/Exama.css" rel="stylesheet" />
+<div class="row">
+    <form method="post">
+        <div class="form-group">
+            <label for="description">Post</label>
+            <textarea rows="5" class="form-control" name="Post""></textarea>
+        </div>
+        <div class="form-group">
+            <h5>@ViewBag.qu.Qu1</h5>
+        </div>
+        <div class="row Qu2">
+            <div class="col-sm-6 col-xs-12 an">
+                <samp class="f2">@ViewBag.qu.An1</samp>
+            </div>
+            <div class="col-sm-6 col-xs-12 an">
+                <samp class="f2">@ViewBag.qu.An2</samp>
+            </div>
+            <div class="col-sm-6 col-xs-12 an">
+                <samp class="f2">@ViewBag.qu.An3</samp>
+            </div>
+            <div class="col-sm-6 col-xs-12 an">
+                <samp class="f2">@ViewBag.qu.An4</samp>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">
+                Create
+            </button>
+        <a href="@Url.Action("Exama","Student",new { id = ViewBag.exame } )" class="btn btn-primary">
+               back
+         </a>
+        </div>
+</form>
+
+</div>

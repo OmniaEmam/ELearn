@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Elearn.Models.Ueaser>
+@{
+    ViewBag.Title = "useringroup";
+}
+<link href="~/Content/Ueaser.css" rel="stylesheet" />
+
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="row user">
+            <div class="col-sm-1 col-xs-3">
+                <h5>@item.id</h5>
+            </div>
+            <div class="col-sm-1 col-xs-4">
+                <h5>@item.Fname @item.Lname</h5>
+            </div>
+            <div class="col-sm-2 col-xs-5">
+                <h5>@item.UserName</h5>
+            </div>
+            <div class="col-sm-2 col-xs-5">
+                <h5>@item.phone</h5>
+            </div>
+            <div class="col-sm-2 col-xs-5">
+                <input type="checkbox" id="@item.id" value="@item.id" name="@item.UserName" onclick="chckd('@item.id')" checked/>
+            </div>
+        </div>
+    }
+}
+
+<script src="~/js/ApiStuInGroup.js"></script>

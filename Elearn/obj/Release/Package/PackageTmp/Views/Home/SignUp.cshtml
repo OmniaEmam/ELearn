@@ -1,0 +1,76 @@
+﻿@model Elearn.Models.Ueaser
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+@using (Html.BeginForm()) 
+{
+    
+<div class="form-horizontal">
+    <h4>Ueaser</h4>
+    <div class="form-group">
+        <label class="control-label col-md-2">First Name</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Fname, new { htmlAttributes=new{@class ="form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Last Name</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Lname, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Phone</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">UserName</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Password</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">RePassword</label>
+        <div class="col-md-10">
+            <input type="password" class="form-control" id="Repass" name="Repass" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Gender</label>
+        <div class="col-md-10">
+            <div>
+                @Html.RadioButtonFor(m => m.sex, "Male", new { htmlAttributes = new { @class = "form-control" } })
+                <label class="control-label">Male</label>
+            </div>
+            <div>
+                @Html.RadioButtonFor(m => m.sex, "Female", new { htmlAttributes = new { @class = "form-control" } })
+                <label class="control-label">FeMale</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" value="validation" id="validation" class="btn btn-default"/>
+            <input type="submit" value="Send" id="send" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+<h3 id="m">@ViewBag.m</h3>
+<script src="~/js/sinup.js"></script>

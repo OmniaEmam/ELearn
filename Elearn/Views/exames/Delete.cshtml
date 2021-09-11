@@ -1,0 +1,103 @@
+﻿@model Elearn.Models.exame
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<head>
+    <title>Delete</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/login/css/style.css">
+
+</head>
+
+<br />
+<br />
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Delete Exam Page</h2>
+
+        </div>
+
+    </div>
+</section><!-- End Breadcrumbs -->
+<section class="inner-page">
+    <div class="container">
+        <h1>Are You Sure to Delete this Exam ?</h1>
+        <hr />
+        <dl class="dl-horizontal h2">
+            <dt>
+                @Html.DisplayNameFor(model => model.photo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.photo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.id_emp)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.id_emp)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.id_teacher)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.id_teacher)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.idgroup)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idgroup)
+            </dd>
+
+        </dl>
+        <br />
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-success" style="width:110px" />
+        <br />
+        <br />
+        <br />|
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+        }
+    </div>
+    </section>

@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/Discussion.css" rel="stylesheet" />
+@{
+    foreach (var item in ViewBag.post_qus)
+    {
+     <div class="row postdiv" >
+            @if (Session["Role"] == "Employee")
+            {
+                <div>
+                    <h5>
+                        @{var x = item.Ueaser.Fname + " " + item.Ueaser.Lname;}
+                        @x
+                    </h5>
+                </div>
+                            }
+            <div class="col-sm-12 col-xs-12 post">
+                <h3>
+                    @item.post.post1
+                </h3>
+            </div>
+            <div class="col-sm-12 col-xs-12">
+                <h4>
+                    @item.qu.Qu1
+                </h4>
+            </div>
+         <div class="Qu" >
+            <div class="col-sm-6 col-xs-12 an">
+                <samp>@item.qu.An1</samp>
+            </div>
+            <div class="col-sm-6 col-xs-12 an">
+                <samp>@item.qu.An2</samp>
+            </div>
+            <div class="col-sm-6 col-xs-12 an">
+                <samp>@item.qu.An3</samp>
+            </div>
+            <div class="col-sm-6 col-xs-12 an">
+                <samp>@item.qu.An4</samp>
+            </div>
+            </div>
+            </div>
+
+            <div class="row comemnt">
+
+            <div id="C_@item.post.id">
+
+            @{foreach (var c in item.comm)
+                  {
+                  <div class="col-xs-12">
+                      <h4 class="post" style="margin-left: 10px;">@c.comment1</h4>
+                  </div>
+                  }
+              }
+             </div>
+         
+            <div class="col-xs-12">
+                <input type="button" class="btn btn-outline-dark" id="Get_@item.post.id" value="more" onclick="getcomment('Get_@item.post.id','@item.post.id')" style="margin-left: 10px;"/>
+            </div>
+            <div class="col-xs-8" >
+                <input type="text" id="@item.post.id" class="form-control" style="margin-left: 10px; margin-right: 30px;"/>
+            </div>
+            <div class="col-xs-4">
+                <input type="button" class="btn btn-primary" value="send" onclick="sendcomment('@item.post.id','@Session["id"]')" />
+            </div>
+            
+        </div>
+    }
+
+}
+<script src="~/js/Discussion.js"></script>
